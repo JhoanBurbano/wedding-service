@@ -1,8 +1,9 @@
-import { Module } from '@nestjs/common';
-import { MongooseModule } from '@nestjs/mongoose';
-import { Invite, InviteSchema } from 'src/schemas';
+import { Invite, InviteSchema } from 'src/schemas/invite.schema';
+
 import { InvitesController } from './invites.controller';
 import { InvitesService } from './invites.service';
+import { Module } from '@nestjs/common';
+import { MongooseModule } from '@nestjs/mongoose';
 
 @Module({
   imports: [

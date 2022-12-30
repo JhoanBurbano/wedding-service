@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import { FamilyDocument } from 'src/schemas';
+import { FamilyDocument } from 'src/schemas/family.schema';
 import * as fs from 'fs';
 import * as qrcode from 'qrcode';
 import { S3Service } from 'src/s3/s3.service';

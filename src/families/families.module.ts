@@ -1,4 +1,5 @@
-import { Family, FamilySchema, Invite, InviteSchema } from 'src/schemas/index';
+import { Family, FamilySchema } from 'src/schemas/family.schema';
+import { Invite, InviteSchema } from 'src/schemas/invite.schema';
 
 import { FamiliesController } from './families.controller';
 import { FamiliesService } from './families.service';

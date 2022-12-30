@@ -1,6 +1,7 @@
-import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { HydratedDocument, Schema as _Schema } from 'mongoose';
-import { Family } from '.';
+import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
+
+import { Family } from './family.schema';
 
 export type InviteDocument = HydratedDocument<Invite>;
 
