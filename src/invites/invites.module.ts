@@ -1,4 +1,4 @@
-import { Invite, InviteSchema } from 'src/schemas/invite.schema';
+import { Invite, InviteSchema } from '../schemas/invite.schema';
 
 import { InvitesController } from './invites.controller';
 import { InvitesService } from './invites.service';

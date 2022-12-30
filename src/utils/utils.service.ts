@@ -1,9 +1,9 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import { FamilyDocument } from 'src/schemas/family.schema';
+import { FamilyDocument } from '../schemas/family.schema';
 import * as fs from 'fs';
 import * as qrcode from 'qrcode';
-import { S3Service } from 'src/s3/s3.service';
+import { S3Service } from '../s3/s3.service';
 
 @Injectable()
 export class UtilsService {

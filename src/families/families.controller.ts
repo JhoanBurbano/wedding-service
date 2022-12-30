@@ -10,8 +10,8 @@ import {
 } from '@nestjs/common';
 import { FamiliesService } from './families.service';
 import { FamiliesDTO } from './dto/families/families';
-import { InvitesService } from 'src/invites/invites.service';
-import { InviteDTO } from 'src/invites/dto/invites.dto';
+import { InvitesService } from '../invites/invites.service';
+import { InviteDTO } from '../invites/dto/invites.dto';
 
 @Controller('families')
 export class FamiliesController {

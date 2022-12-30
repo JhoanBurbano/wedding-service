@@ -1,11 +1,11 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { Family, FamilyDocument } from 'src/schemas/family.schema'; 
+import { Family, FamilyDocument } from '../schemas/family.schema';
 import { FamiliesDTO } from './dto/families/families';
-import { InvitesService } from 'src/invites/invites.service';
-import { UtilsService } from 'src/utils/utils.service';
-import { InviteDocument } from 'src/schemas/invite.schema';
+import { InvitesService } from '../invites/invites.service';
+import { UtilsService } from '../utils/utils.service';
+import { InviteDocument } from '../schemas/invite.schema';
 
 @Injectable()
 export class FamiliesService {

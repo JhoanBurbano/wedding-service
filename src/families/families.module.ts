@@ -1,13 +1,13 @@
-import { Family, FamilySchema } from 'src/schemas/family.schema';
-import { Invite, InviteSchema } from 'src/schemas/invite.schema';
+import { Family, FamilySchema } from '../schemas/family.schema';
+import { Invite, InviteSchema } from '../schemas/invite.schema';
 
 import { FamiliesController } from './families.controller';
 import { FamiliesService } from './families.service';
-import { InvitesService } from 'src/invites/invites.service';
+import { InvitesService } from '../invites/invites.service';
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
-import { S3Service } from 'src/s3/s3.service';
-import { UtilsService } from 'src/utils/utils.service';
+import { S3Service } from '../s3/s3.service';
+import { UtilsService } from '../utils/utils.service';
 
 @Module({
   imports: [
