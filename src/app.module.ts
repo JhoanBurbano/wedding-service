@@ -1,8 +1,14 @@
-import { Module } from '@nestjs/common';
+import { ConfigModule, ConfigService } from '@nestjs/config';
+import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
+
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { FamiliesModule } from './families/families.module';
+import { InvitesModule } from './invites/invites.module';
+import { MiddlewareMiddleware } from './middleware/middleware.middleware';
 import { MongooseModule } from '@nestjs/mongoose';
-import { ConfigModule, ConfigService } from '@nestjs/config';
+import { S3Service } from './s3/s3.service';
+import { UtilsService } from './utils/utils.service';
 import configuration from './config/configuration';
 
 @Module({
@@ -25,8 +31,14 @@ import configuration from './config/configuration';
         useNewUrlParser: true,
       }),
     }),
+    InvitesModule,
+    FamiliesModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, S3Service, UtilsService],
 })
-export class AppModule {}
+export class AppModule implements NestModule {
+  configure(consumer: MiddlewareConsumer) {
+    consumer.apply(MiddlewareMiddleware).forRoutes('');
+  }
+}
