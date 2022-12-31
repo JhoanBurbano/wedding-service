@@ -6,6 +6,7 @@ import { FamiliesDTO } from './dto/families/families';
 import { InvitesService } from '../invites/invites.service';
 import { UtilsService } from '../utils/utils.service';
 import { InviteDocument } from '../schemas/invite.schema';
+import { S3Service } from 'src/s3/s3.service';
 
 @Injectable()
 export class FamiliesService {
@@ -13,6 +14,7 @@ export class FamiliesService {
     @InjectModel(Family.name)
     private readonly familyModel: Model<FamilyDocument>,
     private readonly inviteService: InvitesService,
+    private readonly s3Services: S3Service,
     private readonly utils: UtilsService,
   ) {}
 
@@ -41,6 +43,7 @@ export class FamiliesService {
   }
 
   async deleteFamily(id) {
+    await this.s3Services.deleteFile(id);
     return this.familyModel.findByIdAndDelete(id);
   }
 
@@ -59,7 +62,7 @@ export class FamiliesService {
     );
   }
 
-  async deleteAll(id) {
+  async deleteAll(id: string) {
     const families = await this.deleteFamily(id);
     return this.inviteService.deleteInvites(families.integrants);
   }
