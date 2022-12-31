@@ -16,7 +16,7 @@ export class UtilsService {
   }
 
   public csvGenerator(families: Array<FamilyDocument>) {
-    const path = 'uploads/familiesList.csv';
+    const path = '../../uploads/familiesList.csv';
     fs.writeFileSync(path, '', 'utf-8');
     const _families = JSON.parse(JSON.stringify(families));
     const fields = _families.map((family: FamilyDocument) => {
