@@ -5,9 +5,7 @@ import { ValidationPipe } from '@nestjs/common';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.useGlobalPipes(new ValidationPipe());
-  app.enableCors({
-    origin: ['https://jessi-joan.vercel.app', 'http://localhost:3000'],
-  });
+  app.enableCors({ allowedHeaders: '*', origin: '*', credentials: true });
   await app.listen(3001);
 }
 bootstrap();
