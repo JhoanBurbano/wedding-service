@@ -1,8 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { FamilyDocument } from '../schemas/family.schema';
-import * as fs from 'fs';
-import * as _path from 'path';
 import * as qrcode from 'qrcode';
 import { S3Service } from '../s3/s3.service';
 
@@ -17,8 +15,6 @@ export class UtilsService {
   }
 
   public csvGenerator(families: Array<FamilyDocument>) {
-    const path = process.cwd() + '/uploads/familiesList.csv';
-    fs.writeFileSync(path, '', 'utf-8');
     const _families = JSON.parse(JSON.stringify(families));
     const fields = _families.map((family: FamilyDocument) => {
       return {
@@ -34,10 +30,7 @@ export class UtilsService {
         `/Users/jhoansebastianburbano/Documents/freelance/design/datamerge/${family._id}.png`,
       ]);
     });
-
-    content.forEach((row) => fs.appendFileSync(path, row.join(',') + '\n'));
-    const url = fs.readFileSync(path, { encoding: 'base64' });
-    return { url };
+    return JSON.stringify(content);
   }
 
   async qrcodeGenerator(id: string) {
@@ -67,7 +60,6 @@ export class UtilsService {
   }
 
   public fieldsToBD(body: Record<string, any>) {
-    console.log('value', body);
     for (const property in body) {
       if (typeof body[property] === 'string') {
         const value = body[property] as string;
