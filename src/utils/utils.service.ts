@@ -35,16 +35,13 @@ export class UtilsService {
 
   async qrcodeGenerator(id: string) {
     try {
-      const qr = await qrcode.toDataURL(
-        (this.WEB_APP_URL as string) + '#confirm?code=' + id,
-        {
-          width: 400,
-          color: {
-            dark: 'F3B562',
-            light: 'FFFFFF00',
-          },
+      const qr = await qrcode.toDataURL((this.WEB_APP_URL as string) + id, {
+        width: 400,
+        color: {
+          dark: 'F3B562',
+          light: 'FFFFFF00',
         },
-      );
+      });
       const name = `${id}.png`;
       const body = Buffer.from(
         qr.replace(/^data:image\/\w+;base64,/, ''),
