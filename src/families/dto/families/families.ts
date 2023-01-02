@@ -16,7 +16,7 @@ export class FamiliesDTO {
 
   @IsOptional()
   @IsInt()
-  @Max(3)
+  @Max(4)
   total?: number;
 
   @IsOptional()
