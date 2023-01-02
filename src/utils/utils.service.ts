@@ -27,7 +27,9 @@ export class UtilsService {
       content.push([
         family.family,
         family._id.toString(),
-        family.total.toString() + (family.total > 1 ? 'Personas' : 'Persona'),
+        family.total.toString() +
+          ' ' +
+          (family.total > 1 ? 'Personas' : 'Persona'),
         `/Users/jhoansebastianburbano/Documents/freelance/design/datamerge/${family._id}.png`,
       ]);
     });
