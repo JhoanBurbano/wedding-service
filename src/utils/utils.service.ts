@@ -22,7 +22,7 @@ export class UtilsService {
         _id: family._id.toString(),
       };
     });
-    const content = [['name', 'code', 'total', '@qrcode']];
+    const content = [['name', 'code', 'total', '@qrcode', 'message']];
     fields.forEach((family: FamilyDocument) => {
       content.push([
         family.family,
@@ -31,6 +31,9 @@ export class UtilsService {
           ' ' +
           (family.total > 1 ? 'Personas' : 'Persona'),
         `/Users/jhoansebastianburbano/Documents/freelance/design/datamerge/${family._id}.png`,
+        `*Porfavor *confirma* tu invitacion, lo puedes hacer en este link: ${
+          this.WEB_APP_URL
+        }${family._id.toString()}`,
       ]);
     });
     return JSON.stringify(content);
