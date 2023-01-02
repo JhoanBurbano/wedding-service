@@ -50,7 +50,7 @@ export class FamiliesService {
   async addMember(id: string, member: InviteDocument) {
     return this.familyModel.updateOne(
       { _id: id },
-      { $push: { integrants: member._id }, $inc: { total: 1 } },
+      { $push: { integrants: member._id } },
     );
   }
 
@@ -58,7 +58,7 @@ export class FamiliesService {
     const member = await this.inviteService.deleteInvite(idMember);
     return this.familyModel.updateOne(
       { _id: id },
-      { $pull: { integrants: member?._id }, $inc: { total: -1 } },
+      { $pull: { integrants: member?._id } },
     );
   }
 
