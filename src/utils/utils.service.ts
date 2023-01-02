@@ -22,11 +22,12 @@ export class UtilsService {
         _id: family._id.toString(),
       };
     });
-    const content = [['name', 'code', '@qrcode']];
+    const content = [['name', 'code', 'total', '@qrcode']];
     fields.forEach((family: FamilyDocument) => {
       content.push([
         family.family,
         family._id.toString(),
+        family.total.toString() + (family.total > 1 ? 'Personas' : 'Persona'),
         `/Users/jhoansebastianburbano/Documents/freelance/design/datamerge/${family._id}.png`,
       ]);
     });
