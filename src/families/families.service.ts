@@ -71,4 +71,8 @@ export class FamiliesService {
     const families = await this.getFamilies();
     return this.utils.csvGenerator(families);
   }
+
+  async confirmInvitation(id: string, comfirmation: boolean) {
+    return this.familyModel.findByIdAndUpdate(id, { confirm: comfirmation });
+  }
 }

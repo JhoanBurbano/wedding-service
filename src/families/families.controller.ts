@@ -90,4 +90,12 @@ export class FamiliesController {
       return error;
     }
   }
+
+  @Put(':id/confirm')
+  async confirmInvitation(
+    @Param('id') id: string,
+    @Body() { confirm }: { confirm: boolean },
+  ) {
+    return await this.familyService.confirmInvitation(id, confirm);
+  }
 }
