@@ -31,7 +31,7 @@ export class UtilsService {
           ' ' +
           (family.total > 1 ? 'Personas' : 'Persona'),
         `/Users/jhoansebastianburbano/Documents/freelance/design/datamerge/${family._id}.png`,
-        `*Porfavor *confirma* tu invitacion, lo puedes hacer en este link: ${
+        `>>> Porfavor *confirma* tu invitacion, lo puedes hacer en este link: ${
           this.WEB_APP_URL
         }${family._id.toString()}`,
       ]);
